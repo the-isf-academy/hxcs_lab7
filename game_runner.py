@@ -8,6 +8,8 @@
 # 2️⃣ Add in your own charachter & background sprite!
 # 
 # 3️⃣ Add these features in the game
+#     - increase the space between obstacles
+#     - end the game if a player hits an obstacle
 #     - draw the score on the screen
 #     - increase the score each second 
 #     - random size obstacles 
@@ -22,6 +24,7 @@
 import pgzrun
 from helpers import *
 from random import randint
+import sys 
 
 # SETUP SCREEN
 WIDTH = 600
@@ -43,7 +46,7 @@ player.gravity = 1
 # SETUP OBSTACLE
 OBSTARCLE_FILE = "cactus.png"
 obstacle_list = []
-total_spawn_interval = 100
+total_spawn_interval = 5
 current_spawn_interval = 0
 
 # SETUP GAME SETTINGS
@@ -76,7 +79,7 @@ def key_presses():
         player.speed -= player.jump_height
 
     elif keyboard[keys.ESCAPE]:
-        game_running = False
+        sys.exit()
 
 
 def move_player():
